@@ -54,3 +54,14 @@ cd build
 make -j$(nproc)
 make install
 ```
+### 4. Compile and Run RISC-V Software Example
+
+Create a simple hello.c program:
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, RISC-V World!\n");
+    return 0;
+}
+```
