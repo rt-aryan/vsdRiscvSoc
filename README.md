@@ -10,7 +10,7 @@ This project focuses on a full-chip RISC-V processor design and tapeout, explori
 - Full chip design and tapeout of a RISC-V processor  
 - Using Synopsys EDA tools for synthesis, place & route, and signoff  
 - Running and testing RISC-V software on Spike simulator and Proxy Kernel
-
+- **All development and testing performed on Linux Fedora environment**
 ---
 
 ## Complete Setup and Build Instructions
@@ -65,3 +65,13 @@ int main() {
     return 0;
 }
 ```
+Compile and link:
+```bash
+riscv64-unknown-elf-gcc -static -o hello hello.c
+```
+Run on Spike Simulator
+```bash
+spike pk hello
+```
+
+Thank you for exploring the India RISC-V Chip Tapeout project!
