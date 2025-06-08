@@ -27,7 +27,7 @@ make -j$(nproc)
 export PATH=$HOME/riscv/bin:$PATH
 riscv64-unknown-elf-gcc --version
 ```
-<img src="assets/image.png" alt="Alt Text" width="300"/>
+<img src="assets/task1.png" alt="Alt Text" width="300"/>
 
 ### 2. Install Spike Simulator
 ```bash
