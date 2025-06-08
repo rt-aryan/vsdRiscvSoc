@@ -58,7 +58,7 @@ cd build
 make -j$(nproc)
 make install
 ```
-<img src="assets/task2.png" alt="Alt Text" width="300"/>
+<img src="assets/task3.png" alt="Alt Text" width="300"/>
 
 ### 4. Compile and Run RISC-V Software Example
 
@@ -75,12 +75,10 @@ Compile and link:
 ```bash
 riscv64-unknown-elf-gcc -static -o hello hello.c
 ```
-<img src="assets/task2.png" alt="Alt Text" width="300"/>
-
 Run on Spike Simulator
 ```bash
 spike pk hello
 ```
-<img src="assets/task2.png" alt="Alt Text" width="300"/>
+<img src="assets/task5.png" alt="Alt Text" width="300"/>
 
 Thank you for exploring the India RISC-V Chip Tapeout project!
