@@ -117,3 +117,12 @@ To get annotated assembly with interleaved C code, use:
 ```bash
 riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -S -fverbose-asm hello.c -o hello_verbose.s
 ```
+### Task4: Hex Dump & Disassembly
+
+Disassemble the ELF File
+
+Run:
+```bash
+riscv32-unknown-elf-objdump -d hello.elf
+```
+This will show you the disassembled machine code, i.e., the actual RISC-V instructions with addresses and opcodes.
