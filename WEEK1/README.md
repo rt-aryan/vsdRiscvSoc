@@ -48,3 +48,4 @@ If you want to compile programs for Linux-capable RISC-V cores:
 ./configure --prefix=$HOME/riscv --with-arch=rv64gc --with-abi=lp64d
 make linux
 ```
+### Task2: 2 Compile “Hello, RISC-V”
