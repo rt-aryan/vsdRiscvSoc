@@ -44,7 +44,7 @@ make install
 export PATH=$HOME/riscv/bin:$PATH
 spike --version
 ```
-<img src="assets/spike.png" alt="Alt Text" width="300"/>
+<img src="assets/task2.png" alt="Alt Text" width="300"/>
 ### 3. Build proxy kernel (riscv-pk)
 ```bash
 cd $HOME/riscv
@@ -57,6 +57,7 @@ cd build
 make -j$(nproc)
 make install
 ```
+<img src="assets/task2.png" alt="Alt Text" width="300"/>
 ### 4. Compile and Run RISC-V Software Example
 
 Create a simple hello.c program:
@@ -72,9 +73,10 @@ Compile and link:
 ```bash
 riscv64-unknown-elf-gcc -static -o hello hello.c
 ```
+<img src="assets/task2.png" alt="Alt Text" width="300"/>
 Run on Spike Simulator
 ```bash
 spike pk hello
 ```
-
+<img src="assets/task2.png" alt="Alt Text" width="300"/>
 Thank you for exploring the India RISC-V Chip Tapeout project!
