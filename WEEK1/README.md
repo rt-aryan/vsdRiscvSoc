@@ -224,3 +224,68 @@ To view a specific register (e.g. a0):
 ```gdb
 (gdb) quit
 ```
+### Task 7 : Running under an Emulator
+🧰 Step 1: Install Dependencies
+
+Open a terminal and run:
+```
+sudo dnf install autoconf automake libtool gmp-devel mpfr-devel libmpc-devel \
+    pkgconfig zlib-devel make gcc git dtc
+```
+This installs all tools required to build Spike and related RISC-V tools.
+🛠️ Step 2: Clone the Spike Repository
+```
+git clone https://github.com/riscv-software-src/riscv-isa-sim.git
+cd riscv-isa-sim
+```
+🧱 Step 3: Build and Install Spike
+
+Run these commands one by one:
+```
+mkdir build
+cd build
+../configure --prefix=/opt/riscv
+make -j$(nproc)
+sudo make install
+```
+📝 --prefix=/opt/riscv installs it to /opt/riscv/bin/spike
+📦 Step 4: Add to PATH (if not already)
+
+Edit your shell config (.bashrc or .zshrc):
+```
+echo 'export PATH=/opt/riscv/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+Test with:
+```
+which spike
+```
+You should see:
+```
+/opt/riscv/bin/spike
+```
+✅ Step 5: Install pk (Proxy Kernel)
+
+pk allows you to run ELF programs that use printf, exit, etc.
+Clone and build:
+```bash
+cd ~
+git clone https://github.com/riscv-software-src/riscv-pk.git
+cd riscv-pk
+mkdir build
+cd build
+../configure --prefix=/opt/riscv --host=riscv32-unknown-elf
+make -j$(nproc)
+sudo make install
+```
+It installs pk to /opt/riscv/riscv32-unknown-elf/bin/pk
+👣 Step 6: Confirm Installation
+
+Try:
+```bash
+spike --version
+```
+and:
+```bash
+/opt/riscv/riscv32-unknown-elf/bin/pk --version
+```
