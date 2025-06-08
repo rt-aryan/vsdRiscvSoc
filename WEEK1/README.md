@@ -32,8 +32,8 @@ make newlib
 
 Once done, make the toolchain accessible system-wide:
 ```bash
-echo 'export PATH=$HOME/riscv/bin:$PATH' \>\> \~/.bashrc source
-\~/.bashrc
+echo 'export PATH=$HOME/riscv/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 ```
 ✅ Step 6: Verify the Installation
 ```bash
