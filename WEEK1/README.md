@@ -49,3 +49,45 @@ If you want to compile programs for Linux-capable RISC-V cores:
 make linux
 ```
 ### Task2: 2 Compile “Hello, RISC-V”
+📝 Step 1: Create a C File
+
+Create a file called hello.c with this minimal C code:
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, RISC-V!\n");
+    return 0;
+}
+```
+You can create the file using nano, vim, or any text editor:
+```bash
+nano hello.c
+```
+Paste the code, save (Ctrl+O), and exit (Ctrl+X).
+⚙️ Step 2: Compile with RISC-V GCC
+
+Use the toolchain to compile the program for RV32IMC:
+
+```bash
+riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -o hello.elf hello.c
+```
+
+✅ Explanation:
+
+    -march=rv32imc → target architecture
+
+    -mabi=ilp32 → 32-bit integer ABI
+
+    -o hello.elf → output file in ELF format
+
+🔍 Step 3: Check the Output ELF
+
+To confirm it compiled correctly:
+```bash
+file hello.elf
+```
+Expected output:
+```bash
+hello.elf: ELF 32-bit LSB executable, UCB RISC-V ...
+```
