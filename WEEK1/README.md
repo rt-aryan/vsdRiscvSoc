@@ -108,6 +108,7 @@ You can open the .s file in any text editor or use:
 less hello.s
 ```
 You’ll see instructions like addi, call, lui, etc., in RISC-V assembly.
+
 📘 Optional: Annotated Assembly with C Source
 
 To get annotated assembly with interleaved C code, use:
