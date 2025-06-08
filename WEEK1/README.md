@@ -1,4 +1,4 @@
-### Task1 : Install & Sanity-Check the Toolchain
+### Task 1 : Install & Sanity-Check the Toolchain
 🧰 Step 1: Install Required Dependencies
 
 Open your terminal and run:
@@ -48,7 +48,7 @@ If you want to compile programs for Linux-capable RISC-V cores:
 ./configure --prefix=$HOME/riscv --with-arch=rv64gc --with-abi=lp64d
 make linux
 ```
-### Task2: Compile “Hello, RISC-V”
+### Task 2: Compile “Hello, RISC-V”
 
 📝 Step 1: Create a C File
 
@@ -93,7 +93,7 @@ Expected output:
 hello.elf: ELF 32-bit LSB executable, UCB RISC-V ...
 ```
 
-### Task3: From C to Assembly
+### Task 3: From C to Assembly
 🔧 Step 1: Generate Assembly Code
 
 Use the -S flag to stop after generating the assembly output:
@@ -117,7 +117,7 @@ To get annotated assembly with interleaved C code, use:
 ```bash
 riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -S -fverbose-asm hello.c -o hello_verbose.s
 ```
-### Task4: Hex Dump & Disassembly
+### Task 4: Hex Dump & Disassembly
 
 Disassemble the ELF File
 
@@ -126,3 +126,57 @@ Run:
 riscv32-unknown-elf-objdump -d hello.elf
 ```
 This will show you the disassembled machine code, i.e., the actual RISC-V instructions with addresses and opcodes.
+
+### Task 5 : ABI & Register Cheat-Sheet
+🧠 RISC-V ABI Basics (RV32I / RV32IMC)
+| Register | ABI Name | Description                        |
+| -------- | -------- | ---------------------------------- |
+| x0       | zero     | Always zero                        |
+| x1       | ra       | Return address                     |
+| x2       | sp       | Stack pointer                      |
+| x3       | gp       | Global pointer                     |
+| x4       | tp       | Thread pointer                     |
+| x5–x7    | t0–t2    | Temporaries                        |
+| x8       | s0/fp    | Saved register / Frame pointer     |
+| x9       | s1       | Saved register                     |
+| x10–x11  | a0–a1    | Function arguments / return values |
+| x12–x17  | a2–a7    | Function arguments                 |
+| x18–x27  | s2–s11   | Saved registers                    |
+| x28–x31  | t3–t6    | More temporaries                   |
+
+📦 Stack and Function Call Convention
+🔁 Function Call Rules
+
+    Arguments: Passed in a0 to a7
+
+    Return values: a0, a1
+
+    Caller-saved: t0–t6, a0–a7
+
+    Callee-saved: s0–s11
+
+📥 Example:
+
+If you call a function with:
+```c
+int sum(int a, int b);
+```
+    a → passed in a0
+
+    b → passed in a1
+
+    Result comes back in a0
+
+✅ How This Helps You
+
+When you run:
+```bash
+riscv32-unknown-elf-objdump -d -S hello.elf
+```
+You’ll now recognize things like:
+
+    mv a0, zero → set return value to 0
+
+    jal ra, printf → jump to printf, saving return address
+
+    addi sp, sp, -16 → stack allocation
