@@ -109,6 +109,8 @@ less hello.s
 ```
 You’ll see instructions like addi, call, lui, etc., in RISC-V assembly.
 
+**To exit from viewing the file in less, simply press: q**
+
 📘 Optional: Annotated Assembly with C Source
 
 To get annotated assembly with interleaved C code, use:
