@@ -48,7 +48,8 @@ If you want to compile programs for Linux-capable RISC-V cores:
 ./configure --prefix=$HOME/riscv --with-arch=rv64gc --with-abi=lp64d
 make linux
 ```
-### Task2: 2 Compile “Hello, RISC-V”
+### Task2: Compile “Hello, RISC-V”
+
 📝 Step 1: Create a C File
 
 Create a file called hello.c with this minimal C code:
@@ -75,11 +76,11 @@ riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -o hello.elf hello.c
 
 ✅ Explanation:
 
-    -march=rv32imc → target architecture
+-march=rv32imc → target architecture
 
-    -mabi=ilp32 → 32-bit integer ABI
+-mabi=ilp32 → 32-bit integer ABI
 
-    -o hello.elf → output file in ELF format
+-o hello.elf → output file in ELF format
 
 🔍 Step 3: Check the Output ELF
 
