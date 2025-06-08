@@ -180,3 +180,47 @@ You’ll now recognize things like:
     jal ra, printf → jump to printf, saving return address
 
     addi sp, sp, -16 → stack allocation
+### Task 6 : Stepping with GDB
+🧰 Step 1: Start GDB
+
+Launch GDB with your ELF:
+```bash
+riscv32-unknown-elf-gdb hello.elf
+```
+You’ll now be in the GDB prompt ((gdb)).
+⛔ Step 2: Set a Breakpoint at main
+
+At the GDB prompt:
+```gdb
+(gdb) break main
+```
+▶️ Step 3: Start Program Execution
+
+Run the program with:
+```gdb
+(gdb) run
+```
+⚠️ Note: Since this is a bare-metal ELF, it won't actually "run" on your Fedora system unless you're using QEMU as a virtual CPU backend (we'll get to that soon).
+However, you can still inspect and simulate program flow with stepping.
+🐾 Step 4: Step Through the Program
+
+Use these commands to go instruction-by-instruction or line-by-line:
+```gdb
+(gdb) stepi      # Step 1 assembly instruction
+(gdb) next       # Step 1 C line
+(gdb) continue   # Continue until next breakpoint
+```
+🧠 Step 5: Inspect Registers
+
+To view all general-purpose registers:
+```gdb
+(gdb) info registers
+```
+To view a specific register (e.g. a0):
+```gdb
+(gdb) print $a0
+```
+🚪 Step 6: Exit GDB
+```gdb
+(gdb) quit
+```
