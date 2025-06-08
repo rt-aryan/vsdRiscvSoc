@@ -92,3 +92,25 @@ Expected output:
 ```bash
 hello.elf: ELF 32-bit LSB executable, UCB RISC-V ...
 ```
+
+### Task3: From C to Assembly
+🔧 Step 1: Generate Assembly Code
+
+Use the -S flag to stop after generating the assembly output:
+```bash
+riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -S hello.c -o hello.s
+```
+This will generate a file hello.s containing the RISC-V assembly code corresponding to your hello.c.
+📂 Step 2: View the Assembly Output
+
+You can open the .s file in any text editor or use:
+```bash
+less hello.s
+```
+You’ll see instructions like addi, call, lui, etc., in RISC-V assembly.
+📘 Optional: Annotated Assembly with C Source
+
+To get annotated assembly with interleaved C code, use:
+```bash
+riscv32-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -S -fverbose-asm hello.c -o hello_verbose.s
+```
