@@ -27,7 +27,7 @@ make -j$(nproc)
 export PATH=$HOME/riscv/bin:$PATH
 riscv64-unknown-elf-gcc --version
 ```
-<img src="task1.png" alt="Alt Text" width="300"/>
+<img src="assets/task1.png" alt="Alt Text" width="300"/>
 
 ### 2. Install Spike Simulator
 ```bash
@@ -44,6 +44,7 @@ make install
 export PATH=$HOME/riscv/bin:$PATH
 spike --version
 ```
+<img src="assets/spike.png" alt="Alt Text" width="300"/>
 ### 3. Build proxy kernel (riscv-pk)
 ```bash
 cd $HOME/riscv
